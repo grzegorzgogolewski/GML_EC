@@ -24,7 +24,6 @@ namespace GML_EC
             public string Linia;
         }
 
-
         private readonly BackgroundWorker _bwReadGml = new BackgroundWorker();     // definicja wątku wczytywanie pliku GML
         private readonly BackgroundWorker _bwSaveGmlData = new BackgroundWorker(); // definicja wątku zapisywania danyc z pliku GML
         private readonly BackgroundWorker _bwReadCsv = new BackgroundWorker();     // definicja wątku czytania pliku z błędami CSV
@@ -37,7 +36,6 @@ namespace GML_EC
 
         public FrmMain()
         {
-
             InitializeComponent();
 
             _bwReadGml.WorkerReportsProgress = true;
@@ -403,25 +401,23 @@ namespace GML_EC
 
             // ====================================================================================
             // obliczanie czasu licencji czasowej
-            TimeSpan licensePeriod = new DateTime(2019, 02, 28, 23, 59, 59) - DateTime.Now;
+            //TimeSpan licensePeriod = new DateTime(2017, 02, 28, 23, 59, 59) - DateTime.Now;
 
             //lblLicencja.Text = Resources.lblLicencja_Czasowa + Math.Round(licensePeriod.TotalHours / 24, 2);
             //lblLicencja.ForeColor = Color.Red;
-            //lblClient.Text = Resources.lblClient_Puck;
-            //pictureBoxClient.Image = Resources.pucki;
 
             lblLicencja.ForeColor = SystemColors.ControlText;
-            lblLicencja.Text = @"Licencja bezterminowa";
-            lblClient.Text = @"Wersja demonstracyjna";
-
+            lblLicencja.Text = Tools.Properties.Resources.lblLicencja;
+            lblClient.Text = Tools.Properties.Resources.lblClient;
+            pictureBoxClient.Image = Tools.Properties.Resources.logo;
 
             // ====================================================================================
 
-            if (licensePeriod.Days <= 0)
-            {
-                MessageBox.Show(@"Okres testowy minął: " + licensePeriod.Days, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                Application.Exit();
-            }
+            //if (licensePeriod.Days <= 0)
+            //{
+            //    MessageBox.Show(@"Okres testowy minął: " + licensePeriod.Days, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //    Application.Exit();
+            //}
         }
 
         //  ---------------------------------------------------------------------------------------

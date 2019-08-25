@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GML_EC</RootNamespace>
     <AssemblyName>GML Raporter</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -36,8 +36,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>
-    </DefineConstants>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <RunCodeAnalysis>false</RunCodeAnalysis>
@@ -53,8 +52,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>
-    </DefineConstants>
+    <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <UseVSHostingProcess>false</UseVSHostingProcess>
@@ -122,9 +120,14 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EPPlus, Version=4.5.3.2, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.3.2\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System">
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core">
       <Private>False</Private>
     </Reference>
@@ -140,6 +143,7 @@
     <Reference Include="System.Drawing">
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms">
       <Private>False</Private>
     </Reference>
@@ -180,6 +184,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="gml_ec.snk" />
+    <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -210,20 +215,15 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\lubinski.png" />
-    <None Include="Resources\swidwinski.png" />
     <None Include="Resources\logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pucki.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\gml.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\EPPlus\EPPlus\EPPlus.csproj">
-      <Project>{be4a6343-f411-44a3-8d6f-f40747ed7ba5}</Project>
-      <Name>EPPlus</Name>
+    <ProjectReference Include="..\Tools_Wloclawek\Tools_Wloclawek.csproj">
+      <Project>{e991184d-b0cb-4ff0-882a-b02bbd755ff7}</Project>
+      <Name>Tools_Wloclawek</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
